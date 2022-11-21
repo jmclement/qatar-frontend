@@ -79,24 +79,24 @@ if selected == "My Team":
     "Choose Any team you want",(list_2022)
     )
 
-    params = dict(
-    pick_team=pick_team)
+    params = {
+        "name": pick_team
+    }
 
     #TODO
     #put api link
-    football_api_url = 'https://qatar-2022-api-refactor-3axvvmvj6a-ue.a.run.app/model'
-    response = requests.get(football_api_url, params=params)
-
-    prediction = response.json()
+    football_api_url = 'https://qatar-2022-api-refactor-3axvvmvj6a-ue.a.run.app/selected_team'
 
     #TODO
     #To put appropriate prediction like results and where eliminated
-    pred = prediction['results']
 
     ok = st.button("Results")
     if ok:
+        response = requests.post(football_api_url,json=params)
+        prediction = response.json()
+        pred = prediction
         results = pred
-    st.subheader(f'results{pred}')
+        st.subheader(f'results{pred}')
 
 # Nice to have as we talked, battle between two teams only, predict the winner
 if selected == "Battle":
