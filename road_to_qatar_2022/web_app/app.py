@@ -4,6 +4,25 @@ import requests
 import streamlit as st
 from streamlit_option_menu import option_menu
 
+# --- Global settings ---
+PAGE_TITLE = 'FIFA World Cup - Qatar 2022'
+PAGE_ICON = '⚽️'
+
+
+# --- Set Page Title and Icon ---
+st.set_page_config(page_title=PAGE_TITLE,page_icon=PAGE_ICON)
+
+
+list_2022 = ['Qatar', 'Germany', 'Denmark', 'Brazil', 'France', 'Belgium',
+             'Croatia', 'Spain', 'Serbia', 'England', 'Switzerland',
+             'Netherlands', 'Argentina', 'IR Iran', 'Korea Republic',
+             'Japan', 'Saudi Arabia', 'Ecuador', 'Uruguay', 'Canada',
+             'Ghana', 'Senegal', 'Portugal', 'Poland', 'Tunisia',
+             'Morocco', 'Cameroon', 'USA', 'Mexico', 'Wales',
+             'Australia',
+             'Costa Rica']
+
+list_2022.sort()
 
 #1. as sidebar menu
 with st.sidebar:
@@ -57,8 +76,7 @@ if selected == "My Team":
     st.title(f"Welcome To Prediction World Cup 2022 Results of a choosen team")
 
     pick_team = st.selectbox(
-    "Choose Any team you want",
-    ('Qatar', 'Germany', 'Denmark', 'Brazil', 'France', 'Belgium', 'Croatia', 'Spain', 'Serbia', 'England', 'Switzerland', 'Netherlands', 'Argentina', 'Iran', 'Korea Republic', 'Japan', 'Saudi Arabia', 'Ecuador', 'Uruguay', 'Canada', 'Ghana', 'Senegal', 'Portugal', 'Poland', 'Tunisia', 'Morocco', 'Cameroon', 'USA', 'Mexico', 'Wales', 'Australia', 'Costa Rica')
+    "Choose Any team you want",(list_2022)
     )
 
     params = dict(
@@ -100,13 +118,12 @@ if selected == "Battle":
     st.title(f"Welcome To the One vs One Showdown")
 
     Team_1 = st.selectbox(
-    "TEAM 1",
-    ('Qatar', 'Germany', 'Denmark', 'Brazil', 'France', 'Belgium', 'Croatia', 'Spain', 'Serbia', 'England', 'Switzerland', 'Netherlands', 'Argentina', 'Iran', 'Korea Republic', 'Japan', 'Saudi Arabia', 'Ecuador', 'Uruguay', 'Canada', 'Ghana', 'Senegal', 'Portugal', 'Poland', 'Tunisia', 'Morocco', 'Cameroon', 'USA', 'Mexico', 'Wales', 'Australia', 'Costa Rica')
+    "TEAM 1",(list_2022)
     )
     Team_2 = st.selectbox(
-    "TEAM 2",
-    ('Qatar', 'Germany', 'Denmark', 'Brazil', 'France', 'Belgium', 'Croatia', 'Spain', 'Serbia', 'England', 'Switzerland', 'Netherlands', 'Argentina', 'Iran', 'Korea Republic', 'Japan', 'Saudi Arabia', 'Ecuador', 'Uruguay', 'Canada', 'Ghana', 'Senegal', 'Portugal', 'Poland', 'Tunisia', 'Morocco', 'Cameroon', 'USA', 'Mexico', 'Wales', 'Australia', 'Costa Rica')
+    "TEAM 2",(list_2022)
     )
+
     win = st.button("Winner")
 
     #TODO
