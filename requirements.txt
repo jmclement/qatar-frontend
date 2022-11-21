@@ -19,6 +19,7 @@ pydantic
 # Front-End
 streamlit
 pillow
+streamlit-option-menu
 
 # utilities
 six>=1.14
