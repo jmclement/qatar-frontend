@@ -84,19 +84,19 @@ if selected == "My Team":
 
     #TODO
     #put api link
-    #football_api_url = ''
-    #response = requests.get(football_api_url, params=params)
+    football_api_url = 'https://qatar-2022-api-refactor-3axvvmvj6a-ue.a.run.app/model'
+    response = requests.get(football_api_url, params=params)
 
-    #prediction = response.json()
+    prediction = response.json()
 
     #TODO
     #To put appropriate prediction like results and where eliminated
-    #pred = prediction['results']
+    pred = prediction['results']
 
     ok = st.button("Results")
-    #if ok:
-        #results = pred
-    #st.subheader(f'results{pred}')
+    if ok:
+        results = pred
+    st.subheader(f'results{pred}')
 
 # Nice to have as we talked, battle between two teams only, predict the winner
 if selected == "Battle":
