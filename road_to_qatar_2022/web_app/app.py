@@ -15,7 +15,7 @@ st.set_page_config(page_title=PAGE_TITLE,page_icon=PAGE_ICON)
 
 list_2022 = ['Qatar', 'Germany', 'Denmark', 'Brazil', 'France', 'Belgium',
              'Croatia', 'Spain', 'Serbia', 'England', 'Switzerland',
-             'Netherlands', 'Argentina', 'IR Iran', 'Korea Republic',
+             'Netherlands', 'Argentina', 'Iran', 'Korea Republic',
              'Japan', 'Saudi Arabia', 'Ecuador', 'Uruguay', 'Canada',
              'Ghana', 'Senegal', 'Portugal', 'Poland', 'Tunisia',
              'Morocco', 'Cameroon', 'USA', 'Mexico', 'Wales',
@@ -55,6 +55,7 @@ if selected == "Home":
          )
     add_bg_from_url()
 
+# background-image: url("https://image.nhandan.vn/w800/Files/Images/2022/04/02/fpnfy6ixmae0udd_1648772051411212-1648834231578.jpg");
 
 if selected == "My Team":
     def add_bg_from_url():
@@ -62,7 +63,7 @@ if selected == "My Team":
             f"""
             <style>
             .stApp {{
-                background-image: url("https://image.nhandan.vn/w800/Files/Images/2022/04/02/fpnfy6ixmae0udd_1648772051411212-1648834231578.jpg");
+                background-image: url("https://wallpapercave.com/wp/wp9346588.jpg");
                 background-attachment: fixed;
                 background-size: cover
 
@@ -92,20 +93,29 @@ if selected == "My Team":
 
     ok = st.button("Results")
     if ok:
+        results = []
         response = requests.post(football_api_url,json=params)
-        prediction = response.json()
-        pred = prediction
-        results = pred
-        st.subheader(f'results{pred}')
+        predictions = response.json()
+
+        for prediction in predictions:
+            if (predictions[prediction]['Draw'] > predictions[prediction]['Home_win']) and (predictions[prediction]['Draw'] > predictions[prediction]['Away_win']):
+                results.append(f"{predictions[prediction]['Home_team']} draws {predictions[prediction]['Away_team']}")
+            if (predictions[prediction]['Home_win'] > predictions[prediction]['Draw']) and (predictions[prediction]['Home_win'] > predictions[prediction]['Away_win']):
+                results.append(f"{predictions[prediction]['Home_team']} wins against {predictions[prediction]['Away_team']}")
+            if (predictions[prediction]['Away_win'] > predictions[prediction]['Draw']) and (predictions[prediction]['Away_win'] > predictions[prediction]['Home_win']):
+                results.append(f"{predictions[prediction]['Home_team']} loses against {predictions[prediction]['Away_team']}")
+
+        st.subheader(f'Results\n{results}')
 
 # Nice to have as we talked, battle between two teams only, predict the winner
+#background-image: url("https://www.aljazeera.com/wp-content/uploads/2022/09/SOR06738.jpg?resize=770%2C513");
 if selected == "Battle":
     def add_bg_from_url():
         st.markdown(
             f"""
             <style>
             .stApp {{
-                background-image: url("https://www.aljazeera.com/wp-content/uploads/2022/09/SOR06738.jpg?resize=770%2C513");
+                background-image: url("https://wallpapercave.com/wp/wp10271393.jpg");
                 background-attachment: fixed;
                 background-size: cover
 
