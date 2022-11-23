@@ -1,3 +1,4 @@
+from pathlib import Path
 import streamlit as st
 import os
 import requests
@@ -9,8 +10,16 @@ PAGE_TITLE = 'FIFA World Cup - Qatar 2022'
 PAGE_ICON = '⚽️'
 BASE_URL = "https://qatar-2022-api-refactor-3axvvmvj6a-ue.a.run.app"
 
+# --- Path Settings ---
+current_dir = Path(__file__).parent if '__file__' in locals() else Path.cwd()
+css_file = os.path.join(current_dir,'css','main.css')
+
 # --- Set Page Title and Icon ---
 st.set_page_config(page_title=PAGE_TITLE,page_icon=PAGE_ICON)
+
+with open(css_file) as f:
+    st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
+
 
 
 list_2022 = ['Qatar', 'Germany', 'Denmark', 'Brazil', 'France', 'Belgium',
