@@ -7,7 +7,7 @@ from streamlit_option_menu import option_menu
 # --- Global settings ---
 PAGE_TITLE = 'FIFA World Cup - Qatar 2022'
 PAGE_ICON = '⚽️'
-
+BASE_URL = "https://qatar-2022-api-refactor-3axvvmvj6a-ue.a.run.app"
 
 # --- Set Page Title and Icon ---
 st.set_page_config(page_title=PAGE_TITLE,page_icon=PAGE_ICON)
@@ -86,7 +86,7 @@ if selected == "My Team":
 
     #TODO
     #put api link
-    football_api_url = 'https://qatar-2022-api-refactor-3axvvmvj6a-ue.a.run.app/selected_team'
+    football_api_url = f'{BASE_URL}/selected_team'
 
     #TODO
     #To put appropriate prediction like results and where eliminated
@@ -163,6 +163,11 @@ if selected == "My Team":
 # Nice to have as we talked, battle between two teams only, predict the winner
 #background-image: url("https://www.aljazeera.com/wp-content/uploads/2022/09/SOR06738.jpg?resize=770%2C513");
 if selected == "Battle":
+
+    if 'team1' not in st.session_state:
+        st.session_state.team1 = list_2022[0]
+
+
     def add_bg_from_url():
         st.markdown(
             f"""
@@ -183,12 +188,30 @@ if selected == "Battle":
     Team_1 = st.selectbox(
     "TEAM 1",(list_2022)
     )
+
+    if Team_1:
+        st.session_state.team1 = Team_1
+
     Team_2 = st.selectbox(
-    "TEAM 2",(list_2022)
+    "TEAM 2",(filter(lambda selTeam: selTeam != st.session_state.team1,list_2022))
     )
 
+    API_URL = f'{BASE_URL}/predict'
+
+    params = {
+        "matches": [
+        {
+            "homeTeam": Team_1,
+            "awayTeam": Team_2
+        }
+    ]
+}
     win = st.button("Winner")
 
+    if win:
+        response = requests.post(API_URL,json=params)
+        prediction = response.json()
+        st.write(prediction['result'])
     #TODO
     #To put appropriate prediction like probality of win, change to conviance value
     #prob = prediction['probability']
