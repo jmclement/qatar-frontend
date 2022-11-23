@@ -74,7 +74,7 @@ if selected == "My Team":
          )
     add_bg_from_url()
 
-    st.title(f"Welcome To Prediction World Cup 2022 Results of a choosen team")
+    st.title(f"⚽🏃🏆🎉🎊Welcome To Prediction World Cup 2022 Results of a choosen team 🎊🎉🏆🏃⚽")
 
     pick_team = st.selectbox(
     "Choose Any team you want",(list_2022)
@@ -99,13 +99,66 @@ if selected == "My Team":
 
         for prediction in predictions:
             if (predictions[prediction]['Draw'] > predictions[prediction]['Home_win']) and (predictions[prediction]['Draw'] > predictions[prediction]['Away_win']):
-                results.append(f"{predictions[prediction]['Home_team']} draws {predictions[prediction]['Away_team']}")
+                results.append(f"{predictions[prediction]['Home_team']} draws {predictions[prediction]['Away_team']} ⚽⚽⚽\n")
             if (predictions[prediction]['Home_win'] > predictions[prediction]['Draw']) and (predictions[prediction]['Home_win'] > predictions[prediction]['Away_win']):
-                results.append(f"{predictions[prediction]['Home_team']} wins against {predictions[prediction]['Away_team']}")
+                results.append(f"{predictions[prediction]['Home_team']} wins against {predictions[prediction]['Away_team']} 😍🎊🥳\n")
             if (predictions[prediction]['Away_win'] > predictions[prediction]['Draw']) and (predictions[prediction]['Away_win'] > predictions[prediction]['Home_win']):
-                results.append(f"{predictions[prediction]['Home_team']} loses against {predictions[prediction]['Away_team']}")
+                results.append(f"{predictions[prediction]['Home_team']} loses against {predictions[prediction]['Away_team']} 🫣😱🫠")
 
-        st.subheader(f'Results\n{results}')
+
+        st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">First Match\n: {results[0]} ',unsafe_allow_html=True)
+        st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Second Match\n: {results[1]} ',unsafe_allow_html=True)
+        st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Third Match\n: {results[0]} ',unsafe_allow_html=True)
+        #knockout stage
+
+        #Round of 16
+        for i in range (2,len(results)):
+            try:
+                st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round Of 16 \n: {results[3]} ',unsafe_allow_html=True)
+
+            except ValueError:
+                st.write(f'Eliminated in the Group Stage')
+            except IndexError:
+                st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            except :
+                st.write(f'Eliminated in the Group Stage')
+
+        #Quarter Final
+        for i in range (2,len(results)):
+            try:
+                st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: {results[4]} 🎊🏆⚽🎖️\n',unsafe_allow_html=True)
+
+            except ValueError:
+                st.write(f'Eliminated in Round of 16')
+            except IndexError:
+                st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in Round of 16 😞',unsafe_allow_html=True)
+            except :
+                st.write(f'Eliminated in Round of 16')
+
+        #Semi Final
+        for i in range (2,len(results)):
+            try:
+                st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Semi Final\n: {results[5]} 🎊🏆⚽🎖️\n',unsafe_allow_html=True)
+
+            except ValueError:
+                st.write(f'Eliminated in Semi Final')
+            except IndexError:
+                st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in Semi Final 😞',unsafe_allow_html=True)
+            except :
+                st.write(f'Eliminated in Semi Final')
+
+        #Final
+        for i in range (2,len(results)):
+            try:
+                st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Final\n: {results[6]} ',unsafe_allow_html=True)
+
+            except ValueError:
+                st.write(f'Loss in the Final')
+            except IndexError:
+                st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Lost the Final 😞',unsafe_allow_html=True)
+            except :
+                st.write(f'Loss in the  Final')
+
 
 # Nice to have as we talked, battle between two teams only, predict the winner
 #background-image: url("https://www.aljazeera.com/wp-content/uploads/2022/09/SOR06738.jpg?resize=770%2C513");
@@ -148,4 +201,4 @@ if selected == "Battle":
             #print(f"(Team_1} is the Winner"")
         #elif prob Team_1 < Team_2 :
             #print(f"{Team_2} is the winner")
-    #st.subheader(f'Winner is {pred}')
+    #st.subheader(f'🏆 Winner is {pred} 🏆')
