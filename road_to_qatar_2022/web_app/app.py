@@ -107,7 +107,7 @@ if selected == "My Team":
 
 
         st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">First Match\n: {results[0]} ',unsafe_allow_html=True)
-        st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Second Match\n: {results[1]} ',unsafe_allow_html=True)
+        st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Second Match\n: {results[0]} ',unsafe_allow_html=True)
         st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Third Match\n: {results[0]} ',unsafe_allow_html=True)
         #knockout stage
 
