@@ -8,7 +8,7 @@ from streamlit_option_menu import option_menu
 # --- Global settings ---
 PAGE_TITLE = 'FIFA World Cup - Qatar 2022'
 PAGE_ICON = '⚽️'
-BASE_URL = "https://qatar-2022-api-refactor-3axvvmvj6a-ue.a.run.app"
+BASE_URL = "https://qatar-2022-api.clement.cloud"
 
 # --- Path Settings ---
 current_dir = Path(__file__).parent if '__file__' in locals() else Path.cwd()
