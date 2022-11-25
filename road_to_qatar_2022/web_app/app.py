@@ -93,7 +93,7 @@ if selected == "My Team":
         "name": pick_team
     }
 
-    #TODO
+
     #put api link
     football_api_url = f'{BASE_URL}/selected_team'
 
@@ -104,6 +104,7 @@ if selected == "My Team":
     if ok:
         results = []
         response = requests.post(football_api_url,json=params)
+
         predictions = response.json()
 
         for prediction in predictions:
@@ -121,52 +122,118 @@ if selected == "My Team":
         #knockout stage
 
         #Round of 16
-        for i in range (2,len(results)):
-            try:
-                st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round Of 16 \n: {results[3]} ',unsafe_allow_html=True)
+        #round_16 = []
+        #if pick_team == round_16:
+            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16\n: {round_16} ',unsafe_allow_html=True)
+        #elif pick_team != round_16:
+            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+        #else:
+            #None
 
-            except ValueError:
-                st.write(f'Eliminated in the Group Stage')
-            except IndexError:
-                st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
-            except :
-                st.write(f'Eliminated in the Group Stage')
+
+
+
+        #for i in range (2,len(results)):
+            #try:
+                #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round Of 16 \n: {results[3]} ',unsafe_allow_html=True)
+
+            #except ValueError:
+                #st.write(f'Eliminated in the Group Stage')
+            #except IndexError:
+               #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            #except :
+                #st.write(f'Eliminated in the Group Stage')
 
         #Quarter Final
-        for i in range (2,len(results)):
-            try:
-                st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: {results[4]} 🎊🏆⚽🎖️\n',unsafe_allow_html=True)
+        #quarter_final= []
+        #if pick_team == quarter_final:
+            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: {quarter_final} ',unsafe_allow_html=True)
+        #elif pick_team != quarter_final:
+            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Quarter Final😞',unsafe_allow_html=True)
+        #else:
+            #None
 
-            except ValueError:
-                st.write(f'Eliminated in Round of 16')
-            except IndexError:
-                st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in Round of 16 😞',unsafe_allow_html=True)
-            except :
-                st.write(f'Eliminated in Round of 16')
+        #for i in range (2,len(results)):
+            #try:
+                #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: {results[4]} 🎊🏆⚽🎖️\n',unsafe_allow_html=True)
+
+            #except ValueError:
+                #st.write(f'Eliminated in Semi Final')
+            #except IndexError:
+                #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in Quarter Final 😞',unsafe_allow_html=True)
+            #except :
+                #st.write(f'Eliminated in Semi Final')
+
+
+        #for i in range (2,len(results)):
+            #try:
+                #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: {results[5]} 🎊🏆⚽🎖️\n',unsafe_allow_html=True)
+
+            #except ValueError:
+                #st.write(f'Eliminated in Round of 16')
+            #except IndexError:
+                #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in Round of 16 😞',unsafe_allow_html=True)
+            #except :
+                #st.write(f'Eliminated in Round of 16')
 
         #Semi Final
-        for i in range (2,len(results)):
-            try:
-                st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Semi Final\n: {results[5]} 🎊🏆⚽🎖️\n',unsafe_allow_html=True)
+        #semi_final =[]
+        #if pick_team == semi_final:
+            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Semi Final\n: {semi_final} ',unsafe_allow_html=True)
+        #elif pick_team != semi_final:
+            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Semi Final😞',unsafe_allow_html=True)
+        #else:
+            #None
 
-            except ValueError:
-                st.write(f'Eliminated in Semi Final')
-            except IndexError:
-                st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in Semi Final 😞',unsafe_allow_html=True)
-            except :
-                st.write(f'Eliminated in Semi Final')
+        #for i in range (2,len(results)):
+            #try:
+                #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Semi Final\n: {results[6]} 🎊🏆⚽🎖️\n',unsafe_allow_html=True)
+
+            #except ValueError:
+                #st.write(f'Eliminated in Semi Final')
+            #except IndexError:
+                #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in Semi Final 😞',unsafe_allow_html=True)
+            #except :
+               # st.write(f'Eliminated in Semi Final')
 
         #Final
-        for i in range (2,len(results)):
-            try:
-                st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Final\n: {results[6]} ',unsafe_allow_html=True)
+        #first_place =[]
+        #if pick_team == first_place:
+            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Final\n: {first_place} ',unsafe_allow_html=True)
+        #elif pick_team != first_place:
+            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Runner Up  😭',unsafe_allow_html=True)
+        #else:
+            #None
 
-            except ValueError:
-                st.write(f'Loss in the Final')
-            except IndexError:
-                st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Lost the Final 😞',unsafe_allow_html=True)
-            except :
-                st.write(f'Loss in the  Final')
+        #for i in range (2,len(results)):
+            #try:
+               # st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Final\n: {results[6]} ',unsafe_allow_html=True)
+
+            #except ValueError:
+                #st.write(f'Loss in the Final')
+            #except IndexError:
+                #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Lost the Final 😞',unsafe_allow_html=True)
+            #except :
+                #st.write(f'Loss in the  Final')
+
+        #Third place
+        #Third_place =[]
+        #if pick_team == Third_place:
+            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Third Place\n: {Third_place} ',unsafe_allow_html=True)
+        #else:
+            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Fourth Place 😑',unsafe_allow_html=True)
+
+
+        #Fun game
+        #expander to guess if team won the world cup
+        with st.expander(f'Wanna guess if this team Will Win the World Cup ? 🤔'):
+            if pick_team != 'Brazil':
+                st.write(f'<h1 style="color:red;font-size:15px;font-family: Comic Sans MS;">No ❌, Try Again with Brazil ❓❓❓',unsafe_allow_html=True)
+            else:
+                st.write(f'<h1 style="color:orange;font-size:15px;font-family: Comic Sans MS;">Yes, You Win 🤩, Lucky Guess ✅',unsafe_allow_html=True)
+                st.image("https://i.ytimg.com/vi/509d5MIR7FY/maxresdefault.jpg")
+
+            st.write(f'<h1 style="color:yellow;font-size:15px;font-family: Comic Sans MS;">🏆 🎊 The Winner of FIFA World Cup 2022 is Brazil 🇧🇷 🎊 🏆',unsafe_allow_html=True)
 
 
 # Nice to have as we talked, battle between two teams only, predict the winner
@@ -192,7 +259,7 @@ if selected == "Battle":
             unsafe_allow_html=True
          )
     add_bg_from_url()
-    st.title(f"Welcome To the One vs One Showdown")
+    st.title(f"Welcome To the One vs One Showdown 🤜✊🤛👊")
 
     Team_1 = st.selectbox(
     "TEAM 1",(list_2022)
@@ -215,22 +282,10 @@ if selected == "Battle":
         }
     ]
 }
-    win = st.button("Winner")
+    win = st.button("Result")
 
     if win:
         response = requests.post(API_URL,json=params)
         prediction = response.json()
-        st.write(prediction['result'])
-    #TODO
-    #To put appropriate prediction like probality of win, change to conviance value
-    #prob = prediction['probability']
-
-
-    #if win:
-
-        #winning_team = prob
-        #if prob Team_1 > Team_2 :
-            #print(f"(Team_1} is the Winner"")
-        #elif prob Team_1 < Team_2 :
-            #print(f"{Team_2} is the winner")
-    #st.subheader(f'🏆 Winner is {pred} 🏆')
+        winner = prediction['result']
+        st.write(f'<h1 style="color:smokie-white;font-size:20px;font-family: Comic Sans MS;">⚽ {winner} ⚽',unsafe_allow_html=True)
