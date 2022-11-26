@@ -21,6 +21,13 @@ with open(css_file) as f:
     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
 
+COMMON_BLCK_STYLE = f'''
+            .main .block-container {{
+                background-color: rgba(0,0,0,0.6);
+                max-width: 60rem;
+            }}
+'''
+
 
 list_2022 = ['Qatar', 'Germany', 'Denmark', 'Brazil', 'France', 'Belgium',
              'Croatia', 'Spain', 'Serbia', 'England', 'Switzerland',
@@ -77,16 +84,18 @@ if selected == "My Team":
                 background-size: cover
 
             }}
+            {COMMON_BLCK_STYLE}
              </style>
              """,
             unsafe_allow_html=True
          )
     add_bg_from_url()
 
-    st.title(f"⚽🏃🏆🎉🎊Welcome To Prediction World Cup 2022 Results of a choosen team 🎊🎉🏆🏃⚽")
+    st.title(f"🏆 Welcome To Qatar World Cup 2022 🏆")
+    st.subheader(f"Results of predictions for a choosen team")
 
     pick_team = st.selectbox(
-    "Choose Any team you want",(list_2022)
+    "Please choose a team",(list_2022)
     )
 
     params = {
@@ -109,16 +118,16 @@ if selected == "My Team":
 
         for prediction in predictions:
             if (predictions[prediction]['Draw'] > predictions[prediction]['Home_win']) and (predictions[prediction]['Draw'] > predictions[prediction]['Away_win']):
-                results.append(f"{predictions[prediction]['Home_team']} draws {predictions[prediction]['Away_team']} ⚽⚽⚽\n")
+                results.append(f"{predictions[prediction]['Home_team']} predicted to draw {predictions[prediction]['Away_team']} ⚽⚽⚽\n")
             if (predictions[prediction]['Home_win'] > predictions[prediction]['Draw']) and (predictions[prediction]['Home_win'] > predictions[prediction]['Away_win']):
-                results.append(f"{predictions[prediction]['Home_team']} wins against {predictions[prediction]['Away_team']} 😍🎊🥳\n")
+                results.append(f"{predictions[prediction]['Home_team']} predicted to win against {predictions[prediction]['Away_team']} 😍🎊🥳\n")
             if (predictions[prediction]['Away_win'] > predictions[prediction]['Draw']) and (predictions[prediction]['Away_win'] > predictions[prediction]['Home_win']):
-                results.append(f"{predictions[prediction]['Home_team']} loses against {predictions[prediction]['Away_team']} 🫣😱🫠")
+                results.append(f"{predictions[prediction]['Home_team']} predicted to lose against {predictions[prediction]['Away_team']} 🫣😱🫠")
 
 
-        st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">First Match\n: {results[0]} ',unsafe_allow_html=True)
-        st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Second Match\n: {results[1]} ',unsafe_allow_html=True)
-        st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Third Match\n: {results[2]} ',unsafe_allow_html=True)
+        st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">First Match\n: {results[0]} ',unsafe_allow_html=True)
+        st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Second Match\n: {results[1]} ',unsafe_allow_html=True)
+        st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Third Match\n: {results[2]} ',unsafe_allow_html=True)
         #knockout stage
 
         #group_elim = [
@@ -128,140 +137,140 @@ if selected == "My Team":
             #]
         #group elimination
         if pick_team == 'Qatar':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
 
         if pick_team == 'Ecuador':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
 
         if pick_team == 'Iran':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
 
         if pick_team == 'USA':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
 
         if pick_team == 'Saudi Arabia':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
 
         if pick_team == 'Poland':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
 
         if pick_team == 'Australia':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
 
         if pick_team == 'Costa Rica':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
 
         if pick_team == 'Japan':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
 
         if pick_team == 'Canada':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
 
         if pick_team == 'Morocco':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
 
         if pick_team == 'Switzerland':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
 
         if pick_team == 'Cameroon':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
 
         if pick_team == 'Ghana':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
 
         if pick_team == 'Korea Republic':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
 
 
         if pick_team == 'Netherlands':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16\n: Netherlands wins against Wales 😍🎊🥳',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: Netherlands wins against Argentina 😍🎊🥳',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Semi Final\n: Netherlands loss against England 😞',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the semi final 😞',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Third Place\n: Netherlands loss against Portugal for third place in this competition 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16\n: Netherlands predicted to win against Wales 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: Netherlands predicted to win against Argentina 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Semi Final\n: Netherlands predicted to lose against England 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the semi final 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Third Place\n: Netherlands predicted to lose against Portugal for third place in this competition 😞',unsafe_allow_html=True)
 
 
         if pick_team == 'Argentina':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16\n: Argentina wins against Denmark 😍🎊🥳',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: Argentina loss against Netherlands 😞',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Quarter Final 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16\n: Argentina predicted to win against Denmark 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: Argentina predicted to lose against Netherlands 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Quarter Final 😞',unsafe_allow_html=True)
 
 
         if pick_team == 'Spain':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16\n: Spain wins against Croatia 😍🎊🥳',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: Argentina loss against Brazil 😞',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Quarter Final 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16\n: Spain predicted to win against Croatia 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: Argentina predicted to lose against Brazil 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Quarter Final 😞',unsafe_allow_html=True)
 
 
         if pick_team == 'Croatia':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16 \n: Croatia loss against Spain 😞',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Round of 16 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16 \n: Croatia predicted to lose against Spain 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Round of 16 😞',unsafe_allow_html=True)
 
         if pick_team == 'Brazil':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16\n: Brazil wins against Uruguay 😍🎊🥳',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: Brazil wins against Spain 😍🎊🥳',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Semi Final\n: Brazil wins against Portugal 😍🎊🥳',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Final\n: Brazil wins against England 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16\n: Brazil predicted to win against Uruguay 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: Brazil predicted to win against Spain 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Semi Final\n: Brazil predicted to win against Portugal 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Final\n: Brazil predicted to win against England 😍🎊🥳',unsafe_allow_html=True)
 
 
         if pick_team == 'Uruguay':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16 \n: Croatia loss against Spain 😞',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Round of 16 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16 \n: Croatia predicted to lose against Spain 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Round of 16 😞',unsafe_allow_html=True)
 
         if pick_team == 'Wales':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16 \n: Wales loss against Netherlands 😞',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Round of 16 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16 \n: Wales predicted to lose against Netherlands 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Round of 16 😞',unsafe_allow_html=True)
 
         if pick_team == 'England':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16\n: England wins against Senegal 😍🎊🥳',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: England wins against France 😍🎊🥳',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Semi Final\n: England wins against Netherland 😍🎊🥳',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Final\n: England loss against Brazil 😞',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">🥈 England Runner up in the world cup 2022, 2nd Place in the competitions 🥈',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16\n: England predicted to win against Senegal 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: England predicted to win against France 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Semi Final\n: England predicted to win against Netherland 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Final\n: England predicted to lose against Brazil 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">🥈 England Runner up in the world cup 2022, 2nd Place in the competitions 🥈',unsafe_allow_html=True)
 
         if pick_team == 'France':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16\n: France wins against Mexico 😍🎊🥳',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: France loss against England 😞',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Quarter Final 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16\n: France predicted to win against Mexico 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: France predicted to lose against England 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Quarter Final 😞',unsafe_allow_html=True)
 
 
         if pick_team == 'Belgium':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16\n: Belgium wins against Germany 😍🎊🥳',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: Belgium loss against Portugal 😞',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Quarter Final 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16\n: Belgium predicted to win against Germany 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: Belgium predicted to lose against Portugal 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Quarter Final 😞',unsafe_allow_html=True)
 
         if pick_team == 'Portugal':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16\n: Portugal wins against Serbia 😍🎊🥳',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: Portugal wins against Belgium 😍🎊🥳',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Semi Final\n: Portugal loss against Brazil 😞',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the semi final 😞',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Third Place\n: Portugal wins against Netherlands 😍🎊🥳',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">🥉 Portugal gets  3rd place in the competition 🥉 ',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16\n: Portugal predicted to win against Serbia 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: Portugal predicted to win against Belgium 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Semi Final\n: Portugal predicted to lose against Brazil 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the semi final 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Third Place\n: Portugal predicted to win against Netherlands 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">🥉 Portugal gets  3rd place in the competition 🥉 ',unsafe_allow_html=True)
 
         if pick_team == 'Senegal':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16 \n: Senegal loss against England 😞',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Round of 16 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16 \n: Senegal predicted to lose against England 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Round of 16 😞',unsafe_allow_html=True)
 
         if pick_team == 'Mexico':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16 \n: Mexico loss against France 😞',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Round of 16 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16 \n: Mexico predicted to lose against France 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Round of 16 😞',unsafe_allow_html=True)
 
         if pick_team == 'Germany':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16 \n: Germany loss against Belgium 😞',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Round of 16 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16 \n: Germany predicted to lose against Belgium 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Round of 16 😞',unsafe_allow_html=True)
 
 
         if pick_team == 'Serbia':
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16 \n: Serbia loss against Portugal 😞',unsafe_allow_html=True)
-            st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Round of 16 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16 \n: Serbia predicted to lose against Portugal 😞',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Round of 16 😞',unsafe_allow_html=True)
 
 
         #Round of 16
         #round_16 = []
         #if pick_team == round_16:
-            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round of 16\n: {round_16} ',unsafe_allow_html=True)
+            #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16\n: {round_16} ',unsafe_allow_html=True)
         #elif pick_team != round_16:
-            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+            #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
         #else:
             #None
 
@@ -270,93 +279,93 @@ if selected == "My Team":
 
         #for i in range (2,len(results)):
             #try:
-                #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Round Of 16 \n: {results[3]} ',unsafe_allow_html=True)
+                #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round Of 16 \n: {results[3]} ',unsafe_allow_html=True)
 
             #except ValueError:
                 #st.write(f'Eliminated in the Group Stage')
             #except IndexError:
-               #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
+               #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Group Stage 😞',unsafe_allow_html=True)
             #except :
                 #st.write(f'Eliminated in the Group Stage')
 
         #Quarter Final
         #quarter_final= []
         #if pick_team == quarter_final:
-            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: {quarter_final} ',unsafe_allow_html=True)
+            #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: {quarter_final} ',unsafe_allow_html=True)
         #elif pick_team != quarter_final:
-            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Quarter Final😞',unsafe_allow_html=True)
+            #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Quarter Final😞',unsafe_allow_html=True)
         #else:
             #None
 
         #for i in range (2,len(results)):
             #try:
-                #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: {results[4]} 🎊🏆⚽🎖️\n',unsafe_allow_html=True)
+                #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: {results[4]} 🎊🏆⚽🎖️\n',unsafe_allow_html=True)
 
             #except ValueError:
                 #st.write(f'Eliminated in Semi Final')
             #except IndexError:
-                #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in Quarter Final 😞',unsafe_allow_html=True)
+                #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in Quarter Final 😞',unsafe_allow_html=True)
             #except :
                 #st.write(f'Eliminated in Semi Final')
 
 
         #for i in range (2,len(results)):
             #try:
-                #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: {results[5]} 🎊🏆⚽🎖️\n',unsafe_allow_html=True)
+                #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: {results[5]} 🎊🏆⚽🎖️\n',unsafe_allow_html=True)
 
             #except ValueError:
                 #st.write(f'Eliminated in Round of 16')
             #except IndexError:
-                #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in Round of 16 😞',unsafe_allow_html=True)
+                #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in Round of 16 😞',unsafe_allow_html=True)
             #except :
                 #st.write(f'Eliminated in Round of 16')
 
         #Semi Final
         #semi_final =[]
         #if pick_team == semi_final:
-            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Semi Final\n: {semi_final} ',unsafe_allow_html=True)
+            #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Semi Final\n: {semi_final} ',unsafe_allow_html=True)
         #elif pick_team != semi_final:
-            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in the Semi Final😞',unsafe_allow_html=True)
+            #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in the Semi Final😞',unsafe_allow_html=True)
         #else:
             #None
 
         #for i in range (2,len(results)):
             #try:
-                #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Semi Final\n: {results[6]} 🎊🏆⚽🎖️\n',unsafe_allow_html=True)
+                #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Semi Final\n: {results[6]} 🎊🏆⚽🎖️\n',unsafe_allow_html=True)
 
             #except ValueError:
                 #st.write(f'Eliminated in Semi Final')
             #except IndexError:
-                #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Eliminated in Semi Final 😞',unsafe_allow_html=True)
+                #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Eliminated in Semi Final 😞',unsafe_allow_html=True)
             #except :
                # st.write(f'Eliminated in Semi Final')
 
         #Final
         #first_place =[]
         #if pick_team == first_place:
-            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Final\n: {first_place} ',unsafe_allow_html=True)
+            #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Final\n: {first_place} ',unsafe_allow_html=True)
         #elif pick_team != first_place:
-            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Runner Up  😭',unsafe_allow_html=True)
+            #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Runner Up  😭',unsafe_allow_html=True)
         #else:
             #None
 
         #for i in range (2,len(results)):
             #try:
-               # st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Final\n: {results[6]} ',unsafe_allow_html=True)
+               # st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Final\n: {results[6]} ',unsafe_allow_html=True)
 
             #except ValueError:
-                #st.write(f'Loss in the Final')
+                #st.write(f'predicted to Lose in the Final')
             #except IndexError:
-                #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Lost the Final 😞',unsafe_allow_html=True)
+                #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Lost the Final 😞',unsafe_allow_html=True)
             #except :
-                #st.write(f'Loss in the  Final')
+                #st.write(f'predicted to Lose in the  Final')
 
         #Third place
         #Third_place =[]
         #if pick_team == Third_place:
-            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Third Place\n: {Third_place} ',unsafe_allow_html=True)
+            #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Third Place\n: {Third_place} ',unsafe_allow_html=True)
         #else:
-            #st.write(f'<h1 style="color:black;font-size:20px;font-family: Comic Sans MS;">Fourth Place 😑',unsafe_allow_html=True)
+            #st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Fourth Place 😑',unsafe_allow_html=True)
 
 
         #Fun game
@@ -389,12 +398,15 @@ if selected == "Battle":
                 background-size: cover
 
             }}
+            {COMMON_BLCK_STYLE}
              </style>
              """,
             unsafe_allow_html=True
          )
     add_bg_from_url()
-    st.title(f"Welcome To the One vs One Showdown 🤜✊🤛👊")
+    st.title(f"Welcome To One vs One Showdown")
+
+    st.subheader('Please choose 2 teams below:')
 
     Team_1 = st.selectbox(
     "TEAM 1",(list_2022)
@@ -423,4 +435,5 @@ if selected == "Battle":
         response = requests.post(API_URL,json=params)
         prediction = response.json()
         winner = prediction['result']
+        winner = winner.replace('draws','predicted to draw').replace('wins','predicted to win').replace('loses','predicted to lose')
         st.write(f'<h1 style="color:smokie-white;font-size:25px;font-family: Comic Sans MS;">⚽ {winner} ⚽',unsafe_allow_html=True)
