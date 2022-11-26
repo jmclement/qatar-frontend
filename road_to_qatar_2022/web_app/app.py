@@ -210,7 +210,7 @@ if selected == "My Team":
             st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Round of 16\n: Brazil predicted to win against Uruguay 😍🎊🥳',unsafe_allow_html=True)
             st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Quarter Final\n: Brazil predicted to win against Spain 😍🎊🥳',unsafe_allow_html=True)
             st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Semi Final\n: Brazil predicted to win against Portugal 😍🎊🥳',unsafe_allow_html=True)
-            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Final\n: Brazil predicted to win against England 😍🎊🥳',unsafe_allow_html=True)
+            st.write(f'<h1 style="font-size:20px;font-family: Comic Sans MS;">Final\n: Brazil predicted to play against England 😍🎊🥳',unsafe_allow_html=True)
 
 
         if pick_team == 'Uruguay':
@@ -370,9 +370,10 @@ if selected == "My Team":
 
         #Fun game
         #expander to guess if team won the world cup
+
         with st.expander(f'Wanna guess if this team Will Win the World Cup ? 🤔'):
             if pick_team != 'Brazil':
-                st.write(f'<h1 style="color:red;font-size:15px;font-family: Comic Sans MS;">No ❌, Try Again with Brazil ❓❓❓',unsafe_allow_html=True)
+                st.write(f'<h1 style="color:red;font-size:15px;font-family: Comic Sans MS;">No ❌, Try Again with another team ❓❓❓',unsafe_allow_html=True)
             else:
                 st.write(f'<h1 style="color:orange;font-size:15px;font-family: Comic Sans MS;">Yes, You Win 🤩, Lucky Guess ✅',unsafe_allow_html=True)
                 st.image("https://i.ytimg.com/vi/509d5MIR7FY/maxresdefault.jpg")
