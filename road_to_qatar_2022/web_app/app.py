@@ -377,8 +377,7 @@ if selected == "My Team":
             else:
                 st.write(f'<h1 style="color:orange;font-size:15px;font-family: Comic Sans MS;">Yes, You Win 🤩, Lucky Guess ✅',unsafe_allow_html=True)
                 st.image("https://i.ytimg.com/vi/509d5MIR7FY/maxresdefault.jpg")
-
-            st.write(f'<h1 style="color:yellow;font-size:px;font-family: Comic Sans MS;">🏆 🎊 The Winner of FIFA World Cup 2022 is Brazil 🇧🇷 🎊 🏆',unsafe_allow_html=True)
+                st.write(f'<h1 style="color:yellow;font-size:px;font-family: Comic Sans MS;">🏆 🎊 The Winner of FIFA World Cup 2022 is Brazil 🇧🇷 🎊 🏆',unsafe_allow_html=True)
 
 
 # Nice to have as we talked, battle between two teams only, predict the winner
